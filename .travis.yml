@@ -4,11 +4,9 @@ os:
   - linux
   - osx
 julia:
-  - release
   - nightly
 notifications:
   email: false
-# uncomment the following lines to override the default test script
-#script:
-#  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-#  - julia -e 'Pkg.clone(pwd()); Pkg.build("NullableStats"); Pkg.test("NullableStats"; coverage=true)'
+script:
+  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+  - julia -e 'Pkg.clone(pwd()); Pkg.clone("https://github.com/johnmyleswhite/NullableArrays.jl.git"); Pkg.build("NullableStats"); Pkg.test("NullableStats"; coverage=true)'

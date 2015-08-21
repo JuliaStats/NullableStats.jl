@@ -28,7 +28,7 @@ build_script:
 # Need to convert from shallow to complete for Pkg.clone to work
   - IF EXIST .git\shallow (git fetch --unshallow)
   - C:\projects\julia\bin\julia -e "versioninfo();
-      Pkg.clone(pwd(), \"NullableStats\"); Pkg.build(\"NullableStats\")"
+      Pkg.clone(pwd(), \"NullableStats\"); Pkg.clone("https://github.com/johnmyleswhite/NullableArrays.jl.git"); Pkg.build(\"NullableStats\")"
 
 test_script:
   - C:\projects\julia\bin\julia --check-bounds=yes -e "Pkg.test(\"NullableStats\")"

@@ -1,5 +1,8 @@
 module NullableStats
 
-# package code goes here
+using NullableArrays
+using StatsBase
+
+include("statistics.jl")
 
 end # module
